@@ -13,19 +13,19 @@
 
 # DEFAULT_ variables are used in substitutions in case of missing the non-default variable.
 # DEFAULT_ variables can be overriden by corresponding CLI args
-DEFAULT_PWMCHIP='pwmchip1'
+DEFAULT_PWMCHIP='pwmchip0'
 DEFAULT_CHANNEL='pwm0'
 # setting the startup time to low values might affect the reliability of thermal controllers
-DEFAULT_TIME_STARTUP=120
+DEFAULT_TIME_STARTUP=3
 DEFAULT_TIME_LOOP=10
 DEFAULT_MONIT_DEVICE='(soc|cpu)'
 DEFAULT_TEMPS_SIZE=6
 DEFAULT_THERMAL_ABS_THRESH_LOW=25
-DEFAULT_THERMAL_ABS_THRESH_HIGH=75
+DEFAULT_THERMAL_ABS_THRESH_HIGH=70
 DEFAULT_THERMAL_ABS_THRESH_OFF=0
 DEFAULT_THERMAL_ABS_THRESH_ON=1
 DEFAULT_DC_PERCENT_MIN=25
-DEFAULT_DC_PERCENT_MAX=100
+DEFAULT_DC_PERCENT_MAX=65
 DEFAULT_PERIOD=25000000
 DEFAULT_THERMAL_CONTROLLER='logistic'
 # tunnable controller parameters
