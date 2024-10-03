@@ -24,8 +24,8 @@ DEFAULT_THERMAL_ABS_THRESH_LOW=25
 DEFAULT_THERMAL_ABS_THRESH_HIGH=70
 DEFAULT_THERMAL_ABS_THRESH_OFF=0
 DEFAULT_THERMAL_ABS_THRESH_ON=1
-DEFAULT_DC_PERCENT_MIN=25
-DEFAULT_DC_PERCENT_MAX=65
+DEFAULT_DC_PERCENT_MIN=49
+DEFAULT_DC_PERCENT_MAX=100
 DEFAULT_PERIOD=25000000
 DEFAULT_THERMAL_CONTROLLER='logistic'
 # tunnable controller parameters
@@ -180,8 +180,9 @@ fan_run_max () {
   message "Running fan at full speed until stopped (Ctrl+C or kill '$$')..." 'INFO'
   while true; do
     echo "$MAX_DUTY_CYCLE" > "$CHANNEL_FOLDER"'duty_cycle'
+    logger $(echo "Fan Run Max duty_cycle:" "$CHANNEL_FOLDER"'duty_cycle')
     # run every so often to make sure it is maxed
-    sleep 120
+    sleep 60
   done
 }
 
@@ -214,6 +215,7 @@ fan_run_thermal () {
         fi
       fi
     fi
+    logger $(echo "Fan Thermal Run duty_cycle:" "$CHANNEL_FOLDER"'duty_cycle')
     sleep "${TIME_LOOP:-$DEFAULT_TIME_LOOP}"
   done
 }
