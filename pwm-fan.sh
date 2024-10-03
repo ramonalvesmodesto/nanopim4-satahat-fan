@@ -180,7 +180,6 @@ fan_run_max () {
   message "Running fan at full speed until stopped (Ctrl+C or kill '$$')..." 'INFO'
   while true; do
     echo "$MAX_DUTY_CYCLE" > "$CHANNEL_FOLDER"'duty_cycle'
-    logger $(echo "Fan Run Max duty_cycle:" "$CHANNEL_FOLDER"'duty_cycle')
     # run every so often to make sure it is maxed
     sleep 60
   done
@@ -215,7 +214,6 @@ fan_run_thermal () {
         fi
       fi
     fi
-    logger $(echo "Fan Thermal Run duty_cycle:" "$CHANNEL_FOLDER"'duty_cycle')
     sleep "${TIME_LOOP:-$DEFAULT_TIME_LOOP}"
   done
 }
